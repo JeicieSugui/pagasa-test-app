@@ -216,3 +216,12 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+backend/data/uploads/*
+backend/data/processed/*.png
+backend/data/results/*.json
+
+data/processed/*.png
+data/results/*.json
+data/uploads/*.png
+frontend/test/e2e/example.spec.ts
+frontend/e2e/example.spec.ts
