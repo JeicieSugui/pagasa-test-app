@@ -1,0 +1,58 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: pagasa-postgres
+    environment:
+      POSTGRES_DB: pagasa
+      POSTGRES_USER: pagasa
+      POSTGRES_PASSWORD: pagasa
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    restart: unless-stopped
+
+  redis:
+    image: redis:7
+    container_name: pagasa-redis
+    ports:
+      - "127.0.0.1:6379:6379"
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    container_name: pagasa-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/data:/app/data
+    environment:
+      APP_VERSION: "1.0.0"
+      GIT_SHA: "local"
+      POSTGRES_DB: pagasa
+      POSTGRES_USER: pagasa
+      POSTGRES_PASSWORD: pagasa
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_DB: 0
+    depends_on:
+      - postgres
+      - redis
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_BASE: http://server4.gmstdevops.com:8000
+    container_name: pagasa-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
