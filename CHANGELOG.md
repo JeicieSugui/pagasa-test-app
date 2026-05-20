@@ -22,3 +22,8 @@ The format is based on Keep a Changelog and this project can use Semantic Versio
 
 ### Added
 Initial demo application with FastAPI backend, React frontend, PostgreSQL, Redis, Docker, automated tests, and CI workflow.
+
+## [1.0.2] - 2026-05-20
+
+### Changed
+- Fix release and change logs for more information
