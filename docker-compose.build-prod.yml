@@ -4,7 +4,7 @@ services:
       context: ./frontend
       args:
         VITE_API_BASE: "http://server4.gmstdevops.com:8000"
-    container_name: pagasa-frontend
+    container_name: pagasa-frontend-prod
     ports:
       - 80:80
   

@@ -44,12 +44,13 @@ services:
 
   frontend:
     image: pagasa-weather-demo-frontend:latest
-    build: ./frontend
+    # build: ./frontend
     container_name: pagasa-frontend
     ports:
       - "80:80"
     depends_on:
       - backend
+    restart: unless-stopped
 
 volumes:
   postgress_data:
