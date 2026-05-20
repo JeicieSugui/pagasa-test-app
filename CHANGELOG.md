@@ -32,3 +32,9 @@ Initial demo application with FastAPI backend, React frontend, PostgreSQL, Redis
 
 ### Changed
 - Correction on light mode colors in the /ops page
+
+
+## [1.0.4] - 2026-05-20
+
+### Changed
+- Change overall font style
