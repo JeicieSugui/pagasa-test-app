@@ -44,3 +44,8 @@ Initial demo application with FastAPI backend, React frontend, PostgreSQL, Redis
 
 ### Changed
 - release and deploy
+
+## [1.1.2] - 2026-05-20
+
+### Changed
+- release and deploy added on script
